@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         totalLabel.text = formatter.stringFromNumber(0)
 
         restoreFromCacheIfLessThan10MinutesAgo()
-        //billField.becomeFirstResponder()
+        billField.becomeFirstResponder()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -87,7 +87,6 @@ class ViewController: UIViewController {
     }
 
     func restoreFromCacheIfLessThan10MinutesAgo() {
-        // Don't know how to determine type of the stored data
         var datetime: Int = SettingsManager.sharedSettingsManager().getSettingByKey("datetime")
         var tenMinutes = 10 * 60 * 1000
         if (Int(NSDate().timeIntervalSince1970) - datetime < tenMinutes) {
